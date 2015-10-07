@@ -1,0 +1,23 @@
+<div class='container'>
+  <h1><%= @question.title %></h1>
+  <div class='votes'>
+    <%= @question.scores.count %>
+  </div>
+
+  <div class='question_body'>
+    <%= @question.body %>
+  </div>
+
+  <% @sorted.answers.each do |answer| %>
+    <div class='answers'>
+      <div class='votes'>
+      <a href='/questions/'><div class='arrow-up'></div></a>
+        <%= answer.scores.count %>
+      <div class='arrow-down'></div>
+      </div>
+      <div class='answer_body'>
+        <%= answer.body %>
+      </div>
+    </div>
+  <% end %>
+</div>

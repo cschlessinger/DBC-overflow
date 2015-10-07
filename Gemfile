@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'pg'
 
 # Sinatra driver
+gem 'hirb'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
