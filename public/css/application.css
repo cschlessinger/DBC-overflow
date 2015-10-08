@@ -18,14 +18,14 @@ h1 {
 .answer_body {
   margin-left: 100px
 }
-.arrow-up {
+.arrow_up {
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid black;
 }
-.arrow-down {
+.arrow_down {
   width: 0;
   height: 0;
   border-left: 10px solid transparent;

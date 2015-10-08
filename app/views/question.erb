@@ -1,22 +1,29 @@
-<div class='container'>
+<div class='container' id="<%= @question.id %>">
   <h1><%= @question.title %></h1>
   <div class='votes'>
+    <a href='/questions/'><div class='arrow-up'></div></a>
     <%= @question.scores.count %>
+    <div class='arrow-down'></div>
   </div>
 
   <div class='question_body'>
     <%= @question.body %>
   </div>
 
-  <% @sorted.answers.each do |answer| %>
-    <div class='answers'>
-      <div class='votes'>
-      <a href='/questions/'><div class='arrow-up'></div></a>
-        <%= answer.scores.count %>
-      <div class='arrow-down'></div>
+  <% @question.answers.each do |answer| %> <!-- Loop through all question's answers -->
+  <% this_answer_id = answer.id %> <!-- Set each answer's id to a variable -->
+    <div class='answers' id="<%=this_answer_id%>"> <!-- Wrap the answer in a div with an id of this answer's id -->
+      <div class='votes'> <!-- Wrap vote count and arrows in vote class -->
+        <a href=''> <!-- Make up arrow link with questions route -->
+          <div class='arrow_up'></div> <!-- Print up arrow -->
+        </a>
+          <div class='score'><%= answer.scores.count %></div> <!-- Print score count -->
+        <a href=''>
+          <div class='arrow_down'></div> <!-- Print down arrow -->
+        </a>
       </div>
-      <div class='answer_body'>
-        <%= answer.body %>
+      <div class='answer_body'> <!-- Wrap answer body in class answer_body -->
+        <%= answer.body %> <!-- Print answer body -->
       </div>
     </div>
   <% end %>
