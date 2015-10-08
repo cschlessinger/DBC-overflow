@@ -33,15 +33,23 @@ post '/questions/:question_id/downvote' do
 end
 
 post '/questions/:question_id/answers/:answer_id/upvote' do
-  answer = Answer.find(params[:answer_id])
-  answer.scores.create(value: 1)
-  score = answer.scores.count
-  score.to_s
+  if session[:user_id]
+    answer = Answer.find(params[:answer_id])
+    answer.scores.create(value: 1)
+    score = answer.scores.count
+    score.to_s
+  else
+    return 'redirect'
+  end
 end
 
 post '/questions/:question_id/answers/:answer_id/downvote' do
-  answer = Answer.find(params[:answer_id])
-  answer.scores.last.destroy
-  score = answer.scores.count
-  score.to_s
+  if session[:user_id]
+    answer = Answer.find(params[:answer_id])
+    answer.scores.last.destroy
+    score = answer.scores.count
+    score.to_s
+  else
+    return 'redirect'
+  end
 end

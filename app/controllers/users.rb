@@ -27,10 +27,9 @@ post '/users/register' do
 end
 
 post '/users/login' do
-  user = User.find_by(email: params[:email])
-  p user
-  if (user && user.password_hash = params[:password])
-    auth_login(user)
+  @user = User.find_by(email: params[:email])
+  if @user.password == params[:password]
+    auth_login(@user)
     redirect "/"
   else
     erb :'/users/login'
