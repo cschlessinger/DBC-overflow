@@ -14,8 +14,12 @@ var upvote = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target)
-      $(target).parent().siblings('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().siblings('.score').html(response);
+      }
     })
   });
 }
@@ -31,8 +35,12 @@ var downvote = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target)
-      $(target).parent().siblings('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().siblings('.score').html(response);
+      }
     })
   });
 }

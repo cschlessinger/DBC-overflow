@@ -21,6 +21,9 @@
     <a href="/logout">Logout</a>
     <a href="/question/new">New Question</a>
   <% end %>
+  <%if not session[:user_id] %>
+    <a href="/questions">Questions</a>
+  <% end %>
   <hr>
 </head>
 <body>
