@@ -20,8 +20,16 @@ get '/questions/:id' do
   erb :question
 end
 
-post '/questions/:id/upvote' do
+post '/questions/:question_id/answers/:answer_id/upvote' do
+  answer = Answer.find(params[:answer_id])
+  answer.scores.create(value: 1)
+  score = answer.scores.count
+  score.to_s
 end
 
-post '/questions/:id/downvote' do
+post '/questions/:question_id/answers/:answer_id/downvote' do
+  answer = Answer.find(params[:answer_id])
+  answer.scores.last.destroy
+  score = answer.scores.count
+  score.to_s
 end

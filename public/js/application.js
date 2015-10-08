@@ -1,7 +1,39 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  upvote();
+  downvote();
 });
+
+var upvote = function() {
+  $('.arrow_up').click(function(event) {
+    event.preventDefault();
+    target = this
+    var question_id = $('.container').attr('id');
+    var answer_id = $(this).parent().parent().parent().attr('id');
+    $.ajax({
+      url: '/questions/' + question_id + '/answers/' + answer_id + '/upvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      console.log(target)
+      $(target).parent().siblings('.score').html(response);
+    })
+  });
+}
+
+var downvote = function() {
+  $('.arrow_down').click(function(event) {
+    event.preventDefault();
+    target = this
+    var question_id = $('.container').attr('id');
+    var answer_id = $(this).parent().parent().parent().attr('id');
+    $.ajax({
+      url: '/questions/' + question_id + '/answers/' + answer_id + '/downvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      console.log(target)
+      $(target).parent().siblings('.score').html(response);
+    })
+  });
+}
+
