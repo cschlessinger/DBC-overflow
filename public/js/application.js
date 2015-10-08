@@ -31,9 +31,53 @@ var downvote = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target)
-      $(target).parent().siblings('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().siblings('.score').html(response);
+      }
     })
   });
+}
+
+var upvoteQuestion = function() {
+  $('.questions > .scores a .arrow_up').click(function(event) {
+    event.preventDefault();
+    target = this;
+    var question_id = $('.container').attr('id');
+    $.ajax({
+      url: '/questions/' + question_id + '/upvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().parent().children('.score').html(response);
+      }
+    })
+  });
+}
+
+var downvoteQuestion = function() {
+  $('.questions > .scores a .arrow_down').click(function(event) {
+    event.preventDefault();
+    target = this;
+    var question_id = $('.container').attr('id');
+    $.ajax({
+      url: '/questions/' + question_id + '/downvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().parent().children('.score').html(response);
+      }
+    })
+  })
 }
 
