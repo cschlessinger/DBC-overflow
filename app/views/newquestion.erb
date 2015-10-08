@@ -1,0 +1,10 @@
+<h3>Add a New Question!</h3>
+
+<div>
+<form action='/questions' method='post' >
+ <input type='text' name='question[title]' placeholder='title'><br>
+ <input type='text' name='question[body]' placeholder='body'><br>
+ <input type="hidden" name='question[user_id]' value='<%= @user_id %>'>
+ <input type='submit' value='Submit!'>
+</form>
+</div>
