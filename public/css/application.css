@@ -4,6 +4,8 @@
 h1 {
   text-align: center;
 }
+
+.questions
 .votes {
   float: left;
   width: 100px;
@@ -12,12 +14,22 @@ h1 {
   margin-left: 100px;
   margin-bottom: 50px
 }
+
 .answers {
+  background-color: gray;
+}
+.answer {
   margin-top: 50px;
 }
 .answer_body {
   margin-left: 100px
 }
+
+.response {
+
+}
+
+
 .arrow_up {
   width: 0;
   height: 0;
