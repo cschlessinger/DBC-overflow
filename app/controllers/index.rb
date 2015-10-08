@@ -6,7 +6,6 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @sorted = Question.sort_answers(@question)
   erb :question
 end
 
