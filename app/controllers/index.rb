@@ -19,17 +19,25 @@ post '/questions' do
 end
 
 post '/questions/:question_id/upvote' do
-  question = Question.find(params[:question_id])
-  question.scores.create(value: 1)
-  score = question.scores.count
-  score.to_s
+  if session[:user_id]
+    question = Question.find(params[:question_id])
+    question.scores.create(value: 1)
+    score = question.scores.count
+    score.to_s
+  else
+    return 'redirect'
+  end
 end
 
 post '/questions/:question_id/downvote' do
-  question = Question.find(params[:question_id])
-  question.scores.last.destroy
-  score = question.scores.count
-  score.to_s
+  if session[:user_id]
+    question = Question.find(params[:question_id])
+    question.scores.last.destroy
+    score = question.scores.count
+    score.to_s
+  else
+    return 'redirect'
+  end
 end
 
 post '/questions/:question_id/answers/:answer_id/upvote' do

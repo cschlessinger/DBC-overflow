@@ -67,10 +67,14 @@ var detail_down = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target);
-      $(target).parent().parent().children('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().parent().children('.score').html(response);
+      }
     })
-  })
+  });
 }
 
 var detail_up = function() {
@@ -83,8 +87,12 @@ var detail_up = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target);
-      $(target).parent().parent().children('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else {
+        $(target).parent().parent().children('.score').html(response);
+      }
     })
   })
 }
@@ -99,8 +107,12 @@ var landing_down = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target);
-      $(target).parent().parent().children('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else {
+        $(target).parent().parent().children('.score').html(response);
+      }
     })
   })
 }
@@ -115,8 +127,13 @@ var landing_up = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target);
-      $(target).parent().parent().children('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().parent().children('.score').html(response);
+      }
     })
   })
 }
+
