@@ -1,0 +1,42 @@
+<div class='container' id="<%= @question.id %>">
+  <h1><%= @question.title %></h1>
+  <div class='questions'> <!-- Wrap question scores/arrows, question body, and question responses in questions class div -->
+    <div class='scores'>
+      <a href=''>
+        <div class='arrow_up'></div>
+      </a>
+      <div class='score'><%= @question.scores.count %></div>
+      <a href=''>
+        <div class='arrow_down'></div>
+      </a>
+    </div>
+
+    <div class='question_body'>
+      <%= @question.body %>
+    </div>
+
+    <div class='response'>
+  </div> <!-- End of questions class -->
+
+
+  <div class='answers'>
+    <h2><%=@question.answers.count%> Answers</h2>
+    <% @question.answers.each do |answer| %> <!-- Loop through all question's answers -->
+    <% this_answer_id = answer.id %> <!-- Set each answer's id to a variable -->
+      <div class='answer' id="<%=this_answer_id%>"> <!-- Wrap the answer in a div with an id of this answer's id -->
+        <div class='scores'> <!-- Wrap vote count and arrows in vote class -->
+          <a href=''> <!-- Make up arrow link with questions route -->
+            <div class='arrow_up'></div> <!-- Print up arrow -->
+          </a>
+            <div class='score'><%= answer.scores.count %></div> <!-- Print score count -->
+          <a href=''>
+            <div class='arrow_down'></div> <!-- Print down arrow -->
+          </a>
+        </div>
+        <div class='answer_body'> <!-- Wrap answer body in class answer_body -->
+          <%= answer.body %> <!-- Print answer body -->
+        </div>
+      </div>
+    <% end %>
+  </div> <!-- End of answers div -->
+</div>

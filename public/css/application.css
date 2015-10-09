@@ -1,0 +1,55 @@
+.container {
+  margin: 0 200px;
+}
+h1 {
+  text-align: center;
+}
+
+.questions {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.question {
+  display: block;
+  margin-top: 50px;
+}
+
+.question_body {
+  display: inline-block;
+  margin-bottom: 50px
+}
+
+.answers {
+
+}
+.answer {
+  margin-top: 50px;
+}
+.answer_body {
+  display: inline-block;
+}
+
+.response {
+
+}
+
+.scores {
+  display: inline-block;
+  width: 100px;
+}
+
+.arrow_up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+}
+.arrow_down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+}

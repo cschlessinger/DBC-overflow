@@ -1,0 +1,15 @@
+<div class="container">
+  <div class='questions'>
+    <% @questions.each do |question|%>
+      <% this_question_id = question.id %>
+      <div class='question' id="<%=this_question_id%>">
+        <div class='scores'>
+          <a href=''><div class='arrow_up'></div></a>
+          <div class='score'><%=question.scores.count%></div>
+          <a href=''><div class='arrow_down'></div></a>
+        </div>
+        <a href="/questions/<%= question.id %>"><%= question.title %></a>
+      </div>
+    <% end %>
+  </div>
+</div>
