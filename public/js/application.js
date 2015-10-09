@@ -19,12 +19,12 @@ var upvoteAnswer = function() {
       if (response == 'redirect'){
         window.location.replace('/')
       }
-      else{
+      else {
         $(target).parent().siblings('.score').html(response);
       }
     })
   });
-}
+};
 
 var downvoteAnswer = function() {
   $('.arrow_down').click(function(event) {
@@ -45,26 +45,20 @@ var downvoteAnswer = function() {
       }
     })
   });
-}
+};
 
 var upvoteQuestion = function() {
-  $('.questions > .scores a .arrow_up').click(function(event) {
-    event.preventDefault();
-    target = this;
-    var question_id = $('.container').attr('id');
-    $.ajax({
-      url: '/questions/' + question_id + '/upvote',
-      method: 'post'
-    })
-    .done(function(response) {
-      console.log(target)
-      $(target).parent().parent().children('.score').html(response);
-    })
-  })
-}
+  detail_up();
+  detail_up();
+};
 
 var downvoteQuestion = function() {
-  $('.questions > .scores a .arrow_down').click(function(event) {
+  landing_down();
+  detail_down();
+};
+
+var detail_down = function() {
+  $('div.questions > div.scores > a > div.arrow_down').click(function(event) {
     event.preventDefault();
     target = this;
     var question_id = $('.container').attr('id');
@@ -73,7 +67,55 @@ var downvoteQuestion = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target)
+      console.log(target);
+      $(target).parent().parent().children('.score').html(response);
+    })
+  })
+}
+
+var detail_up = function() {
+  $('div.questions > div.scores > a > div.arrow_up').click(function(event) {
+    event.preventDefault();
+    target = this;
+    var question_id = $('.container').attr('id');
+    $.ajax({
+      url: '/questions/' + question_id + '/upvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      console.log(target);
+      $(target).parent().parent().children('.score').html(response);
+    })
+  })
+}
+
+var landing_down = function() {
+  $('div.question > div.scores > a > div.arrow_down').click(function(event) {
+    event.preventDefault();
+    target = this;
+    var question_id = $(this).parent().parent().parent().attr('id'); //fix this part for question page id
+    $.ajax({
+      url: '/questions/' + question_id + '/downvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      console.log(target);
+      $(target).parent().parent().children('.score').html(response);
+    })
+  })
+}
+
+var landing_up = function() {
+    $('div.question > div.scores > a > div.arrow_up').click(function(event) {
+    event.preventDefault();
+    target = this;
+    var question_id = $(this).parent().parent().parent().attr('id'); //fix this part for question page id
+    $.ajax({
+      url: '/questions/' + question_id + '/upvote',
+      method: 'post'
+    })
+    .done(function(response) {
+      console.log(target);
       $(target).parent().parent().children('.score').html(response);
     })
   })
