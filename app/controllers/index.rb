@@ -1,6 +1,5 @@
 get '/questions' do
   @questions = Question.all
-
   erb :question_list
 end
 

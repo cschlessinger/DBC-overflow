@@ -1,10 +1,12 @@
 $(document).ready(function() {
-  upvote();
-  downvote();
+  upvoteAnswer();
+  downvoteAnswer();
+  upvoteQuestion();
+  downvoteQuestion();
 });
 
-var upvote = function() {
-  $('.arrow_up').click(function(event) {
+var upvoteAnswer = function() {
+  $('.answer > .scores a .arrow_up').click(function(event) {
     event.preventDefault();
     target = this
     var question_id = $('.container').attr('id');
@@ -14,13 +16,17 @@ var upvote = function() {
       method: 'post'
     })
     .done(function(response) {
-      console.log(target)
-      $(target).parent().siblings('.score').html(response);
+      if (response == 'redirect'){
+        window.location.replace('/')
+      }
+      else{
+        $(target).parent().siblings('.score').html(response);
+      }
     })
   });
 }
 
-var downvote = function() {
+var downvoteAnswer = function() {
   $('.arrow_down').click(function(event) {
     event.preventDefault();
     target = this

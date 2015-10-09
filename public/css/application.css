@@ -1,23 +1,44 @@
 .container {
-  margin: 20px;
+  margin: 0 200px;
 }
 h1 {
   text-align: center;
 }
-.votes {
-  float: left;
-  width: 100px;
+
+.questions {
+  display: inline-block;
+  margin-top: 20px;
 }
+
+.question {
+  display: block;
+  margin-top: 50px;
+}
+
 .question_body {
-  margin-left: 100px;
+  display: inline-block;
   margin-bottom: 50px
 }
+
 .answers {
+
+}
+.answer {
   margin-top: 50px;
 }
 .answer_body {
-  margin-left: 100px
+  display: inline-block;
 }
+
+.response {
+
+}
+
+.scores {
+  display: inline-block;
+  width: 100px;
+}
+
 .arrow_up {
   width: 0;
   height: 0;
